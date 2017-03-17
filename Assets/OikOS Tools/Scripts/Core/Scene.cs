@@ -41,9 +41,7 @@ namespace OikosTools {
 		}
 
 		void Initialize() {
-			if (GameObject.Find("_CORE") == null) { // TODO: find it in a better way
-				Instantiate((GameObject)Resources.Load("_CORE"));
-			}
+			Game.EnsureCoreAssets();
 
 			SaveLoad.instance.data.lastScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 			SaveLoad.instance.Save();

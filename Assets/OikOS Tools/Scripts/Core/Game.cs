@@ -11,6 +11,12 @@ namespace OikosTools {
 
 		public MenuPause pauseMenu;
 
+		public static void EnsureCoreAssets() {
+			if (GameObject.Find("_CORE") == null) { // TODO: find it in a better way
+				Instantiate((GameObject)Resources.Load("_CORE"));
+			}
+		}
+
 		void Awake() {
 			instance = this;
 		}

@@ -35,16 +35,6 @@ namespace OikosTools {
 			OnFadeOutComplete();
 		}
 
-		void Start () {
-			if (GameObject.Find("_SCENE") == null) {
-				TransitionTo("_Logos1",0.1f);
-			}
-		}
-
-		void Update () {
-		
-		}
-
 		public void TransitionTo(string Scene, float Duration = 12, Texture2D TransitionTexture = null, Texture2D WaveTexture = null, AudioClip TransitionSound = null) {
 			if (iTween.Count(gameObject) > 0)
 				return;

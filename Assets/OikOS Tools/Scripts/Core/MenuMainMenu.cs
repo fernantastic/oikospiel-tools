@@ -14,8 +14,7 @@ namespace OikosTools {
 
 		// Use this for initialization
 		void OnEnable () {
-			if (Application.isEditor && GameObject.Find("_CORE") == null)
-				Application.LoadLevelAdditive("_CORE");
+			Game.EnsureCoreAssets();
 		}
 
 		void Start() {
