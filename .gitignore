@@ -1,0 +1,19 @@
+Build
+Library
+Temp
+
+*.DS_Store
+Assembly-CSharp-vs.csproj
+Assembly-CSharp.csproj
+Assembly-CSharp.pidb
+Assembly-CSharp-Editor-vs.csproj
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-firstpass-vs.csproj
+Assembly-CSharp-firstpass.csproj
+Assembly-UnityScript-Editor-vs.unityproj
+Assembly-UnityScript-Editor.unityproj
+Assembly-UnityScript-firstpass-vs.unityproj
+Assembly-UnityScript-firstpass.unityproj
+.vscode
+save.cfg
+oikostools gitlab.sln
