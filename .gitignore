@@ -17,3 +17,24 @@ Assembly-UnityScript-firstpass.unityproj
 .vscode
 save.cfg
 oikostools gitlab.sln
+Assets/Resources/DOTweenSettings.asset
+Assets/Resources/DOTweenSettings.asset.meta
+Assets/ThirdParty/DOTween/DOTween43.dll
+Assets/ThirdParty/DOTween/DOTween43.dll.mdb
+Assets/ThirdParty/DOTween/DOTween43.dll.mdb.meta
+Assets/ThirdParty/DOTween/DOTween43.dll.meta
+Assets/ThirdParty/DOTween/DOTween43.xml
+Assets/ThirdParty/DOTween/DOTween43.xml.meta
+Assets/ThirdParty/DOTween/DOTween46.dll
+Assets/ThirdParty/DOTween/DOTween46.dll.mdb
+Assets/ThirdParty/DOTween/DOTween46.dll.mdb.meta
+Assets/ThirdParty/DOTween/DOTween46.dll.meta
+Assets/ThirdParty/DOTween/DOTween46.xml
+Assets/ThirdParty/DOTween/DOTween46.xml.meta
+Assets/ThirdParty/DOTween/DOTween50.dll
+Assets/ThirdParty/DOTween/DOTween50.dll.mdb
+Assets/ThirdParty/DOTween/DOTween50.dll.mdb.meta
+Assets/ThirdParty/DOTween/DOTween50.dll.meta
+Assets/ThirdParty/DOTween/DOTween50.xml
+Assets/ThirdParty/DOTween/DOTween50.xml.meta
+oikostools.sln
