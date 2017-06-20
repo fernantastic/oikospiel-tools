@@ -71,7 +71,9 @@ public class EditorUtils {
 		}
 	}
 
-
+	/*
+	///// SHORTCUTS FOR OPENING SCENES, IF YOU WANT EM
+	
 	// Edit this line to define your shortcut in the editor
 	// In this example, #1 is the shortcut
 	//	% = ctrl (win) or cmd (osx)
@@ -81,16 +83,17 @@ public class EditorUtils {
 	[MenuItem ("Scene Shortcuts/Edit CORE #1", false, 0)]
 	public static void EditScene1()
 	{
-		if( EditorApplication.SaveCurrentSceneIfUserWantsTo() )
-			EditorApplication.OpenScene("Assets/Scenes/Menues/_CORE.unity");
+		if( UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo() )
+			UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/Menues/_CORE.unity");
 	}
 
 	[MenuItem ("Scene Shortcuts/Edit examplesliders #2", false, 0)]
 	public static void EditScene2()
 	{
-		if( EditorApplication.SaveCurrentSceneIfUserWantsTo() )
-			EditorApplication.OpenScene("Assets/Scenes/Examples/example_sliders.unity");
+		if( UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo() )
+			UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/Examples/example_sliders.unity");
 	}
+	*/
 
 	public static void DrawArray(SerializedObject sobject, string propertyName) {
 		sobject.Update();

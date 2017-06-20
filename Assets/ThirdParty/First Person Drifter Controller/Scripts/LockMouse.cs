@@ -21,12 +21,12 @@ public class LockMouse : MonoBehaviour
     	// unlock when escape is hit
         if  ( Input.GetKeyDown(KeyCode.Escape) )
         {
-        	LockCursor(!Screen.lockCursor);
+        	LockCursor(Cursor.lockState == CursorLockMode.None);
         }
     }
     
     public void LockCursor(bool lockCursor)
     {
-    	Screen.lockCursor = lockCursor;
+    	Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
     }
 }

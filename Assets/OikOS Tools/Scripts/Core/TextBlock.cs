@@ -50,7 +50,7 @@ namespace OikosTools {
 			waitingForInput = false;
 
 			Cursor.visible = true;
-			Screen.lockCursor = false;
+			Cursor.lockState = CursorLockMode.None;
 		}
 
 		public GameObject AddLine(int LineIndex, string str) {

@@ -118,8 +118,8 @@ public class PauseMenu : MonoBehaviour
 				if(GUI.Button(new Rect(Screen.width/2 - buttonWidth/2, buttonHeight*2, buttonWidth, buttonHeight), "Reset Level", pauseMenuStyle))
 				{
 					print("Reset Level");
-					PauseGame();
-					Application.LoadLevel(Application.loadedLevel);
+					PauseGame();//
+					UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
 				}
 				
 				// options button

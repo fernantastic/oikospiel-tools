@@ -150,10 +150,10 @@ namespace OikosTools {
 
 			if (Mode == ControlMode.FirstPerson) {
 				Cursor.visible = false;
-				Screen.lockCursor = true;
+				Cursor.lockState = CursorLockMode.Locked;
 			} else if (Mode == ControlMode.ThirdPerson || Mode == ControlMode.MouseFollow) {
 				Cursor.visible = true;
-				Screen.lockCursor = false;
+				Cursor.lockState = CursorLockMode.None;
 				_mouseFollow_target = transform.position;
 			}
 

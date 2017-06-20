@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace OikosTools {
 	[RequireComponent(typeof(Camera))]
@@ -30,9 +31,16 @@ namespace OikosTools {
 
 		void Awake() {
 			instance = this;
-			OnLevelWasLoaded();
+			OnSceneLoaded();
 			OnTransitionUpdate(0);
 			OnFadeOutComplete();
+		}
+		void OnEnable() {
+			SceneManager.sceneLoaded += OnSceneLoaded;
+		}
+		void OnDisable() {
+			SceneManager.sceneLoaded -= OnSceneLoaded;
+
 		}
 
 		public void TransitionTo(string Scene, float Duration = 12, Texture2D TransitionTexture = null, Texture2D WaveTexture = null, AudioClip TransitionSound = null) {
@@ -73,18 +81,21 @@ namespace OikosTools {
 
 		void OnFadeInComplete() {
 			Cursor.visible = true;
-			Screen.lockCursor = false;
+			Cursor.lockState = CursorLockMode.None;
 
 			StartCoroutine("StartLoad");
 		}
 
 		private IEnumerator StartLoad() {
-			_asyncOp = Application.LoadLevelAsync(_nextScene);
+			_asyncOp = SceneManager.LoadSceneAsync(_nextScene);
 			yield return _asyncOp;
 			OnLoadingComplete();
 		}
 
-		void OnLevelWasLoaded() {
+		void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
+			OnSceneLoaded();
+		}
+		void OnSceneLoaded() {
 			//Debug.Log("OnLoadingComplete");
 			foreach(Canvas c in GameObject.FindObjectsOfType<Canvas>() ) {
 				c.renderMode = RenderMode.ScreenSpaceCamera;

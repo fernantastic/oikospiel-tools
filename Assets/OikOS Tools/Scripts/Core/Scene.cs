@@ -20,7 +20,7 @@ namespace OikosTools {
 		internal bool inputEnabled = true;
 		internal AudioSource[] sceneSounds;
 
-		internal string name;
+		//internal string name;
 
 		float _fade_timer = -1;
 		float _fade_targetVolume;

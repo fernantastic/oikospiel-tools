@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 // === This is the info container class ===
 [Serializable ()]
-[assembly:AssemblyVersion ("0.1.*.*")]
+//[assembly:AssemblyVersion ("0.1.*.*")]
 public class Saver : ISerializable {
 	
 	// === Values ===

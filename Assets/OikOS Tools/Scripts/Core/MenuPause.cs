@@ -40,7 +40,7 @@ namespace OikosTools {
 				}
 				if (_visible) {
 					Cursor.visible = true;
-					Screen.lockCursor = false;
+					Cursor.lockState = CursorLockMode.None;
 				}
 			}
 		}
@@ -52,7 +52,7 @@ namespace OikosTools {
 			canvasObject.SetActive(_visible);
 
 			Cursor.visible = true;
-			Screen.lockCursor = false;
+			Cursor.lockState = CursorLockMode.None;
 
 			AudioListener.volume = (Scene.current != null ? Scene.current.volume : 1) * 0.6f;
 
