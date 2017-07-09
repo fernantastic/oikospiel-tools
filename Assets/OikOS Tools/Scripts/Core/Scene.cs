@@ -31,8 +31,7 @@ namespace OikosTools {
 		void Awake () {
 			_instance = this;
 
-			if (Application.isEditor)
-				Initialize();
+			Initialize();
 
 			dialogBlock = GetComponentInChildren<TextBlock>();
 

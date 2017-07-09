@@ -40,7 +40,7 @@ namespace OikosTools {
 		}
 		
 		public void Show(int Lines = 1) {
-
+			//Debug.Log("Show dialog textBlock Lines:"+Lines);
 			container.SetActive(true);
 			for(int i = 0; i < Mathf.Min(Lines,dialogLines.Length); i++) {
 				dialogLines[i].SetActive(true);

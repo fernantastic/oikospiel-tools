@@ -31,14 +31,11 @@ namespace OikosTools {
 		public Object textFile;
 		public string _editor_textFile_path = "";
 
-		[SerializeField()]
 		public List<string> _storedDialogs = new List<string>();
 
 		public List<List<string>> _storedSyllables = new List<List<string>>();
 
-		[SerializeField()]
 		public List<MusicalDialogMidiEvent> midiEvents = new List<MusicalDialogMidiEvent>();
-		[SerializeField()]
 		public List<MusicalDialogSyllable> syllables = new List<MusicalDialogSyllable>();
 
 		public InstrumentMode instrumentMode = InstrumentMode.Single;
@@ -51,7 +48,6 @@ namespace OikosTools {
 		public Object midiFile;
 		public string _editor_midiFile_path = ""; //store last used midi file
 		public AudioClip baseClip;
-		[SerializeField]
 		public AudioClip[] randomClips = new AudioClip[]{};
 		public AudioClip[] orderedClips = new AudioClip[]{};
 		public NotePitch baseNote = NotePitch.A4;
@@ -112,6 +108,7 @@ namespace OikosTools {
 		}
 
 		public void Play() {
+			//Debug.Log("MusicalDialog.Play()  _playing:" + _playing + " syllabls count: " + syllables.Count);
 			if (_playing) return;
 			if (syllables.Count == 0) return;
 			_coroutine = StartCoroutine(PlayDialog());
@@ -138,8 +135,10 @@ namespace OikosTools {
 			_syllableObjects = new List<GameObject>();
 			_firstSyllableGlobalIndex = 0;
 
+			if (_storedDialogs.Count == 0)
+				Debug.LogError("Tried to play a dialog but no text could be parsed");
+
 			foreach(string currentDialog in _storedDialogs) {
-				
 				_firstSyllableGlobalIndex = _syllableIndex;
 
 				// get lines
@@ -388,12 +387,12 @@ namespace OikosTools {
 		}
 
 		public void ParseDialog() {
-			_storedDialogs.Clear();
-
 			if (dialogMode == DialogMode.Sentence) {
+				_storedDialogs.Clear();
 				_storedDialogs.Add(dialog);
 			} else if (dialogMode == DialogMode.TextFile) {
 				#if UNITY_EDITOR
+				_storedDialogs.Clear();
 				if (!string.IsNullOrEmpty(_editor_textFile_path)) {
 					_storedDialogs.Add("");
 
