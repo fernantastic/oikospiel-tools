@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using DG.Tweening;
 
 namespace OikosTools {
 	public class MenuPause : MonoBehaviour {
@@ -15,6 +14,9 @@ namespace OikosTools {
 
 		internal bool visible { get { return _visible; } }
 		bool _visible = false;
+		float _fadeT = -1;
+		float _fadeFrom = 0;
+		float _fadeTo = 0;
 
 		// Use this for initialization
 		void OnEnable () {
@@ -30,6 +32,13 @@ namespace OikosTools {
 		}
 
 		void Update() {
+			if (_fadeT >= 0) {
+				_fadeT += Time.deltaTime / 0.3f;
+				group.alpha = Mathf.Lerp(_fadeFrom, _fadeTo, Mathf.Clamp01(_fadeT));
+				if (_fadeT > 1) {
+					OnFadeComplete();
+				}
+			}
 			if (Scene.current) {
 				if (Input.GetKeyDown(KeyCode.Escape)) {
 					Debug.Log ("Fading pause menu in _visible="+_visible);
@@ -57,9 +66,9 @@ namespace OikosTools {
 			AudioListener.volume = (Scene.current != null ? Scene.current.volume : 1) * 0.6f;
 
 			//UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(firstItem);
-
-			DOTween.Kill(group.alpha);
-			DOTween.To (()=>group.alpha, x=>group.alpha=x, 1, 0.4f).OnComplete(OnFinish);
+			_fadeT = 0;
+			_fadeFrom = group.alpha;
+			_fadeTo = 1;
 		}
 
 		public void FadeOut(bool Immediate=false) {
@@ -76,16 +85,18 @@ namespace OikosTools {
 			AudioListener.volume = Scene.current != null ? Scene.current.volume : 1;
 			if (Immediate) {
 				group.alpha = 0;
-				OnFinish();
+				OnFadeComplete();
 			} else {
-				DOTween.Kill(group.alpha);
-				DOTween.To (()=>group.alpha, x=>group.alpha=x, 0, 0.3f).OnComplete(OnFinish);
+				_fadeT = 0;
+				_fadeFrom = group.alpha;
+				_fadeTo = 0;
 			}
 		}
 
-		public void OnFinish() {
+		public void OnFadeComplete() {
 			group.interactable = _visible;
 			canvasObject.SetActive(_visible);
+			_fadeT = -1;
 		}
 
 		public void OnButtonHit(Button button) {

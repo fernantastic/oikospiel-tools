@@ -362,7 +362,7 @@ namespace OikosTools {
 						if (a.changeScene_scenePath.Length > 0) {
 							bool onBuildList = false;
 							foreach(EditorBuildSettingsScene s in EditorBuildSettings.scenes) {
-								if (s.path.Contains(a.changeScene_scenePath)) {
+								if (s.path.Contains(a.changeScene_scenePath) && s.enabled) {
 									onBuildList = true;
 									break;
 								}

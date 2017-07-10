@@ -58,7 +58,7 @@ namespace OikosTools {
 		// Use this for initialization
 		void OnEnable () {
 			int l = LayerMask.NameToLayer("Triggers");
-			if (l >= 0 && gameObject.layer != l) {
+			if (l >= 0) {
 				gameObject.layer = l;
 			} else {
 				Debug.LogWarning("Add a layer called 'Triggers'");
