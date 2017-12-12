@@ -1,0 +1,21 @@
+# oikospiel-tools
+Trigger-based tools for Unity for crafting games without programming, focused on playfulness and experimentation.
+
+## Features
+* **Trigger system**
+  * A simple interface to create complex interactions with simple rules (e.g. *when player enters this area fade the background color to red*).
+* **Musical conversation dialogs**
+  * Combine a text file, sounds and a MIDI file interactively to create musical conversations.
+
+
+## About
+**oikospiel-tools** was developed for [David Kanaga](http://www.davidkanaga.com/) to create the award-winning dog opera [Oikospiel](http://oikospiel.com/). 
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/xfUaMejNuhw/0.jpg)](http://www.youtube.com/watch?v=xfUaMejNuhw)
+
+
+* Trailer: https://www.youtube.com/watch?v=xfUaMejNuhw
+* Press kit: http://davidkanaga.com/oik_os/press/
+
+
+
