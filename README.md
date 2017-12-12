@@ -3,9 +3,11 @@ Trigger-based tools for Unity for crafting games without programming, focused on
 
 ## Features
 * **Trigger system**
-  * A simple interface to create complex interactions with simple rules (e.g. *when player enters this area fade the background color to red*).
+  * A visual interface to create complex interactions using simple rules (e.g. *when player enters this area fade the background color to red*).
+![](https://raw.githubusercontent.com/wiki/fernandoramallo/oikospiel-tools/img/distancetrigger.png)
 * **Musical conversation dialogs**
   * Combine a text file, sounds and a MIDI file interactively to create musical conversations.
+![](https://raw.githubusercontent.com/wiki/fernandoramallo/oikospiel-tools/img/dialog.gif)
 
 
 ## About
