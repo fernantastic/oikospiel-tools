@@ -353,6 +353,7 @@ namespace OikosTools {
 		public Vector3 nearPoint { get { return Vector3.MoveTowards(constantValueFromPosition, constantValueToPosition, changeValue_constant_nearDistance); } }
 				
 		// ChangeScene
+		public string changeScene_scenePath = "";
 		public string changeScene_sceneGUID = "";
 		public float changeScene_duration = 12;
 		public AudioClip changeScene_transitionSound;
@@ -507,7 +508,7 @@ namespace OikosTools {
 				}
 			} else if (type == Type.ChangeScene) {
 				// TODO: transition through a manager
-				TransitionManager.instance.TransitionTo(System.IO.Path.GetFileNameWithoutExtension(changeScene_sceneGUID), changeScene_duration, changeScene_transitionTexture, changeScene_transitionWaveTexture, changeScene_transitionSound);
+				TransitionManager.instance.TransitionTo(System.IO.Path.GetFileNameWithoutExtension(changeScene_scenePath), changeScene_duration, changeScene_transitionTexture, changeScene_transitionWaveTexture, changeScene_transitionSound);
 			} else if (type == Type.PlaySound) {
 				foreach(var sound in GetSounds()) {
 					if (sound != null && sound.gameObject.activeSelf)

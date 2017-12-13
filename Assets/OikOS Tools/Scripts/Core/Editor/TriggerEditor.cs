@@ -361,6 +361,7 @@ namespace OikosTools {
 						// check it's in build settings
 						if (a.changeScene_sceneGUID.Length > 0) {
 							string scenename = AssetDatabase.GUIDToAssetPath(a.changeScene_sceneGUID);
+							a.changeScene_scenePath = scenename;
 							bool onBuildList = false;
 							foreach(EditorBuildSettingsScene s in EditorBuildSettings.scenes) {
 								if (s.path.Contains(scenename) && s.enabled) {
@@ -378,6 +379,8 @@ namespace OikosTools {
 								}
 								GUI.color = Color.white;
 							}
+						} else {
+							a.changeScene_scenePath = "";
 						}
 						a.changeScene_duration = EditorGUILayout.FloatField("Transition Duration", a.changeScene_duration);
 						a.changeScene_transitionSound = (AudioClip)EditorGUILayout.ObjectField("Transition sound", a.changeScene_transitionSound, typeof(AudioClip), true);
