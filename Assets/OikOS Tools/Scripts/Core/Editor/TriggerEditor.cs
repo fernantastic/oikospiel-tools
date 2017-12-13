@@ -349,20 +349,21 @@ namespace OikosTools {
 					case Action.Type.ChangeScene:
 
 						string[] scenes = AssetDatabase.FindAssets("t:scene");
+						string[] scenenames = new string[scenes.Length];
 						for (int i = 0; i < scenes.Length; i++) {
-							string path = AssetDatabase.GUIDToAssetPath(scenes[i]);
 							//if (path.StartsWith("Assets/")) //remove the assets directory because Build Settings doesn't use it
 							//    path = path.Remove(0, "Assets/".Length);
-							scenes[i] = path;
+							scenenames[i] = AssetDatabase.GUIDToAssetPath(scenes[i]);
 						}
-						int sceneIndex = EditorGUILayout.Popup("Scene", System.Array.IndexOf(scenes,a.changeScene_scenePath), scenes);
+						int sceneIndex = EditorGUILayout.Popup("Scene", System.Array.IndexOf(scenes,a.changeScene_sceneGUID), scenenames);
 						if (sceneIndex > 0)
-							a.changeScene_scenePath = scenes[sceneIndex];
+							a.changeScene_sceneGUID = scenes[sceneIndex];
 						// check it's in build settings
-						if (a.changeScene_scenePath.Length > 0) {
+						if (a.changeScene_sceneGUID.Length > 0) {
+							string scenename = AssetDatabase.GUIDToAssetPath(a.changeScene_sceneGUID);
 							bool onBuildList = false;
 							foreach(EditorBuildSettingsScene s in EditorBuildSettings.scenes) {
-								if (s.path.Contains(a.changeScene_scenePath) && s.enabled) {
+								if (s.path.Contains(scenename) && s.enabled) {
 									onBuildList = true;
 									break;
 								}
@@ -372,13 +373,13 @@ namespace OikosTools {
 								GUI.color = Color.red;
 								if (GUILayout.Button("Add Scene to Build List")) {
 									List<EditorBuildSettingsScene> buildscenes = EditorBuildSettings.scenes.OfType<EditorBuildSettingsScene>().ToList();
-									buildscenes.Add(new EditorBuildSettingsScene(a.changeScene_scenePath,true));
+									buildscenes.Add(new EditorBuildSettingsScene(scenename,true));
 									EditorBuildSettings.scenes = buildscenes.ToArray();
 								}
 								GUI.color = Color.white;
 							}
 						}
-						//a.changeScene_duration = EditorGUILayout.FloatField("Transition Duration", a.changeScene_duration);
+						a.changeScene_duration = EditorGUILayout.FloatField("Transition Duration", a.changeScene_duration);
 						a.changeScene_transitionSound = (AudioClip)EditorGUILayout.ObjectField("Transition sound", a.changeScene_transitionSound, typeof(AudioClip), true);
 						a.changeScene_transitionTexture = (Texture2D)EditorGUILayout.ObjectField("Transition Texture", a.changeScene_transitionTexture, typeof(Texture2D), true);
 						a.changeScene_transitionWaveTexture = (Texture2D)EditorGUILayout.ObjectField("Wave Effect Texture", a.changeScene_transitionWaveTexture, typeof(Texture2D), true);
