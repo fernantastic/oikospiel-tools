@@ -38,3 +38,5 @@ Assets/ThirdParty/DOTween/DOTween50.dll.meta
 Assets/ThirdParty/DOTween/DOTween50.xml
 Assets/ThirdParty/DOTween/DOTween50.xml.meta
 oikostools.sln
+obj/Debug/Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
+obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
