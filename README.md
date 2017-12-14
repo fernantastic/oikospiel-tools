@@ -16,6 +16,9 @@ Play a [web demo here](https://s3.amazonaws.com/fernandoramallo.public/Oikos/oik
   * Ready-to-go title screen, transitions, a pause menu and a simple save system. Just add scenes and have a fully working game.
 * **Scripts and shaders**
   * Assorted scripts and materials to add to your game.
+  
+## How to use
+Refer to the [Wiki](../../wiki) for documentation and getting started.
 
 
 ## About
