@@ -9,6 +9,10 @@ Play a [web demo here](https://s3.amazonaws.com/fernandoramallo.public/Oikos/oik
 * **Musical conversation dialogs**
   * Combine a text file, sounds and a MIDI file interactively to create musical conversations.
 ![](https://raw.githubusercontent.com/wiki/fernandoramallo/oikospiel-tools/img/dialog.gif)
+* **A basic game framework**
+  * A title screen, transitions and a simple save system. Just add scenes and have a fully working game.
+* **Scripts and shaders**
+  * Ready to go, helpful scripts and materials to add to your game.
 
 
 ## About
